@@ -76,3 +76,33 @@ add script to package.json
 ```
 
 - `npm run build` transpile typescript to javascript
+
+## rimraf for production
+
+- `npm i --save-dev rimraf` install rimraf for production
+
+add script to package.json
+
+```json
+  "scripts": {
+    "build:prod": "rimraf ./build && tsc",
+    "start:prod": "npm run build:prod && node build/index.js"
+  },
+```
+
+## Define data types in TypeScript
+
+Define types
+
+- `let myString: string;` string type
+- `let myNumber: number;` number type
+- `let myBoolean: boolean;` boolean type
+- `let myVar: any;` any type
+- `let strArr: string[];` string array type
+- `let numArr: number[];` number array type
+- `let boolArr: boolean[];` boolean array type
+- `let strNumTuple: [string, number];` tuple type
+- `let myVoid: void;` void type
+- `let myNull: null;` null type
+- `let myUndefined: undefined;` undefined type
+- `let myNever: never;` never type
