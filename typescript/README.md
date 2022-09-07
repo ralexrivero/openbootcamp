@@ -64,3 +64,15 @@ add script to package.json
     "start": "nodemon"
   },
 ```
+
+### Transpile final version to JavaScript
+
+add script to package.json
+
+```json
+  "scripts": {
+    "build": "tsc"
+  },
+```
+
+- `npm run build` transpile typescript to javascript
