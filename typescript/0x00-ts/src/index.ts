@@ -68,21 +68,21 @@ console.log(task01.state);
 
 type sku = {
     price: number,
-    name: string,
+    brand: string,
     year: number
 }
 
 const car: sku = {
     price: 100000,
-    name: 'Tesla',
+    brand: 'Tesla',
     year: 2020
 }
 
-console.log(car.name);
+console.log(car.brand);
 
 // ternary operator
 const age = car.year > 2019 ? 'New' : 'Old'
-console.log(`The ${car.name} is: ${age}`);
+console.log(`The ${car.brand} is: ${age}`);
 
 // Conditional
 
@@ -149,7 +149,36 @@ taskList.forEach((task, index) => {
 });
 
 /**
- * multiple asignment
+ * multiple asignment with spread factor
  */
 
-const {nameB, priorityB, stateB} = taskList;
+const {price, brand, year} = car;
+
+console.log(`brand: ${brand}, price: ${price}, year: ${year}`);
+
+// lists
+
+let listMonday: string[] = ['eggs', 'bread', 'milk'];
+let listTuesday: string[] = [...listMonday, 'meat', 'fish', 'vegetables'];
+let listWednesday: string[] = ['strawberries', 'apples'];
+let listThursday: string[] = [...listMonday, ...listWednesday];
+let listFriday: boolean[] = [true, false, true];
+let listSaturday = [...listThursday, ...listFriday];
+
+console.log(listThursday);
+console.log(listSaturday);
+
+// objects
+
+let stateApp = {
+    user: 'admin',
+    state: 'active',
+    token: '123456'
+}
+
+let stateApp2 = {
+    ...stateApp,
+    token: 'abcdef'
+}
+
+console.log(stateApp2);
