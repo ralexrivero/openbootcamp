@@ -182,3 +182,54 @@ let stateApp2 = {
 }
 
 console.log(stateApp2);
+
+/**
+ * Functions
+ */
+
+/**
+ * greeting - print a greeting message to the stdout
+ */
+function greetings() {
+    let name: string = 'TypeScript';
+    console.log(`Hello ${name}`);
+}
+
+// call the function greeetings
+greetings();
+
+/**
+ * greetingYou - print a greeting message to the stdout
+ * @param name - custom name to print
+ */
+function greetingYou(name: string) {
+    console.log(`Hello ${name}`);
+}
+
+greetingYou('Rony');
+
+/**
+ * byeDefault - print a bye message to the stdout
+ * @param name - custom name to print, default value is provided
+ */
+function byeDefault(name: string = 'John Doe') {
+    console.log(`Bye ${name}`);
+}
+
+byeDefault();
+byeDefault('Ronald');
+
+/**
+ * byeOptional - print a bye message to the stdout
+ * @param name - optional name to print, default is undefined
+ */
+function byeOptional(name?: string) {
+    if (name) {
+        console.log(`Bye ${name}!`);
+    } else {
+        console.log('Bye!');
+    }
+}
+
+byeOptional();
+byeOptional('Tom');
