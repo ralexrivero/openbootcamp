@@ -1,3 +1,5 @@
+import { isBooleanObject, isNumberObject } from "util/types";
+
 console.log('Hello TypeScript');
 
 // comment
@@ -233,3 +235,176 @@ function byeOptional(name?: string) {
 
 byeOptional();
 byeOptional('Tom');
+
+/**
+ * multiParam - print a message to the stdout using multiple and optional parameters
+ * @param name - requiered name to print
+ * @param lastName - optional last name to print
+ * @param age - default value to print
+ */
+function multiParam(name: string, lastName?: string, age: number = 18) {
+    if (lastName) {
+        console.log(`${name} ${lastName} is ${age} years old`);
+    } else {
+        console.log(`${name} is ${age} years old`);
+    }
+};
+
+multiParam('Carl');
+multiParam('Carl', 'White');
+multiParam('Carl', 'White', 25);
+multiParam('Carl', undefined, 30);
+
+/**
+ * multiType - recieves multi type parameter
+ * @param entry can be string, number or boolean
+ * @returns void
+ */
+function multiType(entry: string | number | boolean): void {
+    if (typeof(entry) === 'string') {
+        console.log(`string value: ${entry}`);
+    } else if (typeof(entry) === 'number') {
+        console.log(`Number value: ${entry}`);
+    } else if (typeof(entry) === 'boolean') {
+        console.log(`Boolean value: ${entry}`);
+    } else {
+        console.log(`Default case`);
+    }
+};
+
+multiType('Some text');
+multiType(3);
+multiType(true);
+multiType(false);
+
+// return values
+
+/**
+ * myReturn - receives string params with default values and defines return string type
+ * @param name
+ * @param lastName
+ * @returns (string) concatenates name, lastName
+ */
+function myReturn(name: string = 'Default Name', lastName: string = 'Default LastName'): string {
+    return `${name} ${lastName}`;
+}
+
+const myReturnValue = myReturn('John', 'Doe Gallager');
+console.log(myReturnValue);
+
+// Variadic functions
+/**
+ * myVariadic - recieves a list of strings
+ * @param names - list of names
+ * @returns
+ */
+function myVariadic(...names:string[]): string[] {
+    let nameList: string[] = [];
+    names.forEach((name) =>
+    {
+        nameList.push(name);
+    });
+    return nameList;
+}
+
+console.log(myVariadic('Goku', 'Gohan', 'Vegeta', 'Cell'));
+console.log(myVariadic('one'));
+
+/**
+ * multiAdd - add multiple numbers
+ * @param numbers - list of numbers
+ * @returns - addition
+ */
+function multiAdd(...numbers: number[]): number {
+    let add: number = 0;
+    numbers.forEach((number) => {
+        add += number;
+    });
+    return add;
+}
+
+console.log(multiAdd(3));
+console.log(multiAdd(1, 5, 25, 50, 2, 16));
+
+// arrow functions, anonymous function
+// () => {}
+
+const myArrow = () => {console.log('This is an arrow function')}
+myArrow();
+
+type Employee = {
+    name: string,
+    lastName: string,
+    age: number
+}
+
+const employee2201: Employee= {
+    name: 'John',
+    lastName: 'Mafee',
+    age: 30
+}
+
+const showEmployee = (employee: Employee): string => `${employee.name} ${employee.lastName} is ${employee.age} years old`;
+console.log(showEmployee(employee2201));
+
+// async functions
+
+async function myAsyncFunc(): Promise<string> {
+    await console.log('await task');
+    return 'completed task';
+}
+
+myAsyncFunc().then((response) => {
+    console.log(`async then: ${response}`)
+}).catch((error) => {
+    console.log(error);
+}).finally(()=> console.log('All done'));
+
+// generators functions
+// generators generate to much values as defined, but not necessarilly has to finish
+
+function* generatorFunc() {
+    let index = 0;
+    while(index < 5) {
+        yield index++;
+    }
+}
+
+//save generator in variable but don't execute
+let myGenerator = generatorFunc();
+
+// access the values
+console.log(myGenerator.next().value); // 0
+console.log(myGenerator.next().done);
+console.log(myGenerator.next().value); // 2
+console.log(myGenerator.next().done);
+console.log(myGenerator.next().value); // 4
+console.log(myGenerator.next().done);
+console.log(myGenerator.next().value);
+console.log(myGenerator.next().done);
+console.log(myGenerator.next().value);
+console.log(myGenerator.next().done);
+console.log(myGenerator.next().value); // undefined
+console.log(myGenerator.next().done);
+
+// workder and watcher
+
+function* watcher(value: number) {
+    yield value; // first time emit the intial value
+    yield* worker(value); // call the worker emitions to emit other values
+    yield value + 10; // when finish add 10
+
+}
+
+function* worker(value: number) {
+    yield value + 1;
+    yield value + 2;
+    yield value + 3;
+}
+
+let generatorSaga = watcher(0);
+console.log(generatorSaga.next().value); // watcher
+console.log(generatorSaga.next().value); // worker
+console.log(generatorSaga.next().value); // worker
+console.log(generatorSaga.next().value); // worker
+console.log(generatorSaga.next().value); // watcher
