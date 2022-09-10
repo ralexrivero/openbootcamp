@@ -1,4 +1,7 @@
 import { deleteAllCookies, deleteCookie, getCookieValue, setCookie } from "cookies-utils";
+import { COURSE_LIST } from "./mock/courses.mock";
+import { Course } from "./models/Course";
+import { Student } from "./models/Student";
 
 console.log('Hello TypeScript');
 
@@ -468,40 +471,9 @@ myTimer.start(); // start the timeout, when finish, run the callback function fi
 // delete the function running
 delete myTimer.finish;
 
-// objects
-class Course {
-    name: string;
-    hours: number;
+// class
 
-    constructor(name: string, hours: number) {
-        this.name = name;
-        this.hours = hours;
-    }
-}
-
-class Student {
-    // class properties
-    name: string;
-    lastName?: string;
-    courses: Course[];
-
-    // constructor
-    constructor (name: string, courses: Course[], lastName?: string) {
-        this.name = name;
-        if(lastName) {
-            this.lastName = lastName;
-        }
-        this.courses = courses;
-    }
-}
-
-// create course
-const courseTS: Course = new Course('TypeScripts', 8);
-const courseJS: Course = new Course('JavaScript', 10);
-const courseNode: Course = new Course('NodeJS', 12);
-
-const courseList: Course[] = [courseTS, courseJS];
-courseList.push(courseNode);
+const courseList: Course[] = COURSE_LIST;
 
 console.log(courseList);
 
@@ -514,12 +486,10 @@ student01.courses.forEach((course: Course) => {
 });
 
 // instance and class
-//
 
 console.log(typeof(student01));
 console.log(typeof(courseList));
-console.log(typeof(courseTS));
+console.log(typeof(COURSE_LIST));
 console.log(typeof("abc"));
 console.log(typeof(123));
 console.log(student01 instanceof Student);
-
