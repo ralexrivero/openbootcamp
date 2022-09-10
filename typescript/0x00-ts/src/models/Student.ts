@@ -14,4 +14,20 @@ export class Student {
         }
         this.courses = courses;
     }
+
+    get studiedHours (): number {
+        let studiedHours = 0;
+
+        this.courses.forEach((course: Course) => {
+            studiedHours += course.hours;
+        })
+        return studiedHours;
+    }
+
+    get coursesCount (): number {
+        let coursesCount = 0;
+
+        return coursesCount = this.courses.length;
+    }
+
 }

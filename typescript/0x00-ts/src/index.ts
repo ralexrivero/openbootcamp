@@ -493,3 +493,7 @@ console.log(typeof(COURSE_LIST));
 console.log(typeof("abc"));
 console.log(typeof(123));
 console.log(student01 instanceof Student);
+
+// get the studied hours of a student
+
+console.log(`${student01.name} has ${student01.studiedHours} studied hours in ${student01.coursesCount} courses`);
