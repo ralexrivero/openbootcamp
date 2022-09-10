@@ -1,5 +1,4 @@
-import { AsyncLocalStorage } from "async_hooks";
-import { isBooleanObject, isNumberObject } from "util/types";
+import { deleteAllCookies, deleteCookie, getCookieValue, setCookie } from "cookies-utils";
 
 console.log('Hello TypeScript');
 
@@ -417,4 +416,55 @@ console.log(generatorSaga.next().value); // watcher
 
 // 1. LocalStorage
 
+const cookieOptions = {
+    name: "user01", // string,
+    value: "rony", // string,
+    maxAge: 10 * 60, // optional number (value in seconds),
+    expires: new Date(2099, 10, 1), // optional Date,
+    path: "/", // optional string,
+    domain: "localhost", // optional string,
+    secure: true, // optional boolean,
+//    sameSite: "lax", // optional enum 'lax' | 'strict' | 'none'
+  };
+
+// set cookie
+// setCookie(cookieOptions);
+
+// read cookie
+// getCookieValue('user');
+
+// delete cookie
+// deleteCookie('user');
+
+// delete all cookies
+// deleteAllCookies();
+
+// timer class
+
+class Timer {
+    public finish?: (time:number) => void;
+
+    public start(): void {
+        setTimeout(() => {
+            if (!this.finish) return;
+            // when the time pass, run finish function
+            this.finish(Date.now());
+        }, 10000)
+    }
+}
+
+const myTimer: Timer = new Timer();
+
+// Define the callback function to execute when the time pass
+myTimer.finish = (time: number) => {
+    console.log('Time is up, all task completed:', time)
+}
+
+// launch timer
+myTimer.start(); // start the timeout, when finish, run the callback function finish()
+
+// setInterval(() => { console.log('interval')}, 1000); // print 'interval' every 1 second
+
+// delete the function running
+delete myTimer.finish;
 
