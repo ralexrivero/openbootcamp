@@ -468,3 +468,58 @@ myTimer.start(); // start the timeout, when finish, run the callback function fi
 // delete the function running
 delete myTimer.finish;
 
+// objects
+class Course {
+    name: string;
+    hours: number;
+
+    constructor(name: string, hours: number) {
+        this.name = name;
+        this.hours = hours;
+    }
+}
+
+class Student {
+    // class properties
+    name: string;
+    lastName?: string;
+    courses: Course[];
+
+    // constructor
+    constructor (name: string, courses: Course[], lastName?: string) {
+        this.name = name;
+        if(lastName) {
+            this.lastName = lastName;
+        }
+        this.courses = courses;
+    }
+}
+
+// create course
+const courseTS: Course = new Course('TypeScripts', 8);
+const courseJS: Course = new Course('JavaScript', 10);
+const courseNode: Course = new Course('NodeJS', 12);
+
+const courseList: Course[] = [courseTS, courseJS];
+courseList.push(courseNode);
+
+console.log(courseList);
+
+// create student
+
+const student01: Student = new Student('Rony', courseList, 'Rivero');
+console.log(`${student01.name} ${student01.lastName} studies:`);
+student01.courses.forEach((course: Course) => {
+    console.log(`\t - ${course.name} ${course.hours} hs`)
+});
+
+// instance and class
+//
+
+console.log(typeof(student01));
+console.log(typeof(courseList));
+console.log(typeof(courseTS));
+console.log(typeof("abc"));
+console.log(typeof(123));
+console.log(student01 instanceof Student);
+
