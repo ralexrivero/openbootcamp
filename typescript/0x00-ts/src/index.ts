@@ -1,3 +1,4 @@
+import { AsyncLocalStorage } from "async_hooks";
 import { isBooleanObject, isNumberObject } from "util/types";
 
 console.log('Hello TypeScript');
@@ -408,3 +409,12 @@ console.log(generatorSaga.next().value); // worker
 console.log(generatorSaga.next().value); // worker
 console.log(generatorSaga.next().value); // worker
 console.log(generatorSaga.next().value); // watcher
+
+// data persistence
+// 1. LocalStorage : save data in the browser( doesn't clean automatically)
+// 2. SessionStorage : only persists over browser session
+// 3. Cookies : has expiracy date and URL scope
+
+// 1. LocalStorage
+
+

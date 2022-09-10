@@ -123,3 +123,7 @@ Enums
 
 - `enum Colors {Red = 1, Green, Blue}` enum type
 - `let c: Colors = Colors.Green`
+
+### Cookies
+
+- `npm i cookies-utils --save` install cookies-utils
