@@ -496,4 +496,5 @@ console.log(student01 instanceof Student);
 
 // get the studied hours of a student
 
-console.log(`${student01.name} has ${student01.studiedHours} studied hours in ${student01.coursesCount} courses`);
+student01.studentIDSet = '123456';
+console.log(`${student01.name} (${student01.studentID}) has ${student01.studiedHours} studied hours in ${student01.coursesCount} courses`);

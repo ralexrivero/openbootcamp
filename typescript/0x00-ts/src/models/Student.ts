@@ -6,6 +6,8 @@ export class Student {
     lastName?: string;
     courses: Course[];
 
+    private ID: string = '1234' // only accesible trough an specific getter or/and setter
+
     // constructor
     constructor (name: string, courses: Course[], lastName?: string) {
         this.name = name;
@@ -28,6 +30,14 @@ export class Student {
         let coursesCount = 0;
 
         return coursesCount = this.courses.length;
+    }
+
+    get studentID (): string {
+        return this.ID
+    }
+
+    set studentIDSet (id: string){
+        this.ID = id;
     }
 
 }
