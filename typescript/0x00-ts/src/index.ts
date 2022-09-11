@@ -1,7 +1,9 @@
 import { deleteAllCookies, deleteCookie, getCookieValue, setCookie } from "cookies-utils";
 import { COURSE_LIST } from "./mock/courses.mock";
 import { Course } from "./models/Course";
+import { ITask, Level } from "./models/interfaces/Task.Interfaces";
 import { Chief, Employee } from "./models/Person";
+import { Program } from "./models/Program";
 import { Student } from "./models/Student";
 
 console.log('Hello TypeScript');
@@ -537,3 +539,24 @@ chief.employees.push(employee001, employee002, employee003);
 chief.employees.forEach((employee: Employee) => {
     employee.greet();
 })
+
+chief.greet();
+chief.greetChief();
+
+// using interfaces
+
+let program: ITask = {
+    title: 'Learn TypeScript',
+    description: 'Practice using Katas to learn TS',
+    completed: false,
+    priority: Level.High,
+    resume: function (): string {
+        return `${this.title} = completed: ${this.completed}, level: ${this.priority}`;
+    }
+}
+
+console.log(program.resume());
+
+const taskPrograming001 = new Program('TS', 'Learn and practice TS', false, Level.High);
+console.log(taskPrograming001.resume());
+

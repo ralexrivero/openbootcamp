@@ -21,6 +21,15 @@ export class Employee extends Person {
         super(name, lastName, age);
         this.salary = salary;
     }
+
+    saySalary(): void {
+        console.log(`My salary is: $ ${this.salary}`)
+    }
+
+    greet(): void {
+        super.greet();
+        this.saySalary();
+    }
 }
 
 export class Chief extends Person {
@@ -28,5 +37,9 @@ export class Chief extends Person {
 
     constructor(name: string, lastName: string, age: number) {
         super(name, lastName, age);
+    }
+
+    greetChief(): void {
+        console.log('I am the chief!');
     }
 }
