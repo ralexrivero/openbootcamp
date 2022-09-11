@@ -560,3 +560,55 @@ console.log(program.resume());
 const taskPrograming001 = new Program('TS', 'Learn and practice TS', false, Level.High);
 console.log(taskPrograming001.resume());
 
+// decorators. Functions declared using the @ symbol
+// Classes
+// Parameters
+// Methods
+// Properties
+// add extra properties
+
+function Override(label: string) {
+    return function(target: any, key: string) {
+        Object.defineProperty(target, key, {
+            configurable: false,
+            get: () => label
+        })
+    }
+}
+
+class TestDecorator {
+    @Override('test') // call Override function
+    name: string = 'Ronald'
+}
+
+/* let test002 = new TestDecorator();
+console.log(test002.name); */
+
+// function to be used as decorator
+function OnlyRead(target: any, key: string) {
+    Object.defineProperty(target, key, {
+        writable: false
+    })
+}
+
+class TestOnlyRead {
+    @OnlyRead
+    name: string = 'Only read name';
+}
+
+/* let test003 = new TestOnlyRead();
+test003.name = 'Ralex';
+console.log(test003.name); */
+
+// Decorator for parameters in a method
+function ShowPosition(target: any, propertyKey: string, parameterIndex:number ) {
+    console.log(`Position: ${parameterIndex}`);
+}
+
+class TestDecoratorMethod {
+    test(a: string, @ShowPosition b: boolean) {
+        console.log(b);
+    }
+}
+
+let test004 = new TestDecoratorMethod().test('Hello!!', false);
