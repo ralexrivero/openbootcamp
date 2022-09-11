@@ -1,6 +1,7 @@
 import { deleteAllCookies, deleteCookie, getCookieValue, setCookie } from "cookies-utils";
 import { COURSE_LIST } from "./mock/courses.mock";
 import { Course } from "./models/Course";
+import { Chief, Employee } from "./models/Person";
 import { Student } from "./models/Student";
 
 console.log('Hello TypeScript');
@@ -335,19 +336,19 @@ console.log(multiAdd(1, 5, 25, 50, 2, 16));
 const myArrow = () => {console.log('This is an arrow function')}
 myArrow();
 
-type Employee = {
+type EmployeeA = {
     name: string,
     lastName: string,
     age: number
 }
 
-const employee2201: Employee= {
+const employee2201: EmployeeA= {
     name: 'John',
     lastName: 'Mafee',
     age: 30
 }
 
-const showEmployee = (employee: Employee): string => `${employee.name} ${employee.lastName} is ${employee.age} years old`;
+const showEmployee = (employee: EmployeeA): string => `${employee.name} ${employee.lastName} is ${employee.age} years old`;
 console.log(showEmployee(employee2201));
 
 // async functions
@@ -419,28 +420,48 @@ console.log(generatorSaga.next().value); // watcher
 
 // 1. LocalStorage
 
-const cookieOptions = {
-    name: "user01", // string,
+/* const cookieOptions = {
+    name: "user", // string,
     value: "rony", // string,
     maxAge: 10 * 60, // optional number (value in seconds),
     expires: new Date(2099, 10, 1), // optional Date,
     path: "/", // optional string,
     domain: "localhost", // optional string,
-    secure: true, // optional boolean,
+    secure: true // optional boolean,
 //    sameSite: "lax", // optional enum 'lax' | 'strict' | 'none'
   };
 
 // set cookie
-// setCookie(cookieOptions);
+setCookie(cookieOptions);
 
 // read cookie
-// getCookieValue('user');
+getCookieValue('user');
 
 // delete cookie
-// deleteCookie('user');
+deleteCookie('user');
 
 // delete all cookies
-// deleteAllCookies();
+deleteAllCookies(); */
+
+function saveStorage(): void {
+    localStorage.set('name', 'Rony');
+    sessionStorage.set('name', 'Rony');
+}
+
+function readStorage(): void {
+    let name = localStorage.get('name');
+    let nameSession = sessionStorage.get('name');
+}
+
+function deleteItem(item: string) {
+    localStorage.removeItem(item);
+    sessionStorage.removeItem(item);
+}
+
+function deleteAll(): void {
+    localStorage.clear();
+    sessionStorage.clear();
+}
 
 // timer class
 
@@ -492,9 +513,27 @@ console.log(typeof(courseList));
 console.log(typeof(COURSE_LIST));
 console.log(typeof("abc"));
 console.log(typeof(123));
+const str = new String('hello');
+console.log(str, str[2], typeof(str), str instanceof String);
 console.log(student01 instanceof Student);
 
 // get the studied hours of a student
 
 student01.studentIDSet = '123456';
 console.log(`${student01.name} (${student01.studentID}) has ${student01.studiedHours} studied hours in ${student01.coursesCount} courses`);
+
+// inheritance and polymorphism
+
+let employee001 = new Employee('Alex', 'Tesler', 35, 2000);
+let employee002 = new Employee('Joe', 'Mac Tayler', 38, 2100);
+let employee003 = new Employee('John', 'Ferguson', 42, 1800);
+
+employee001.greet();
+
+let chief = new Chief('Ronald', 'Rivero', 41);
+
+chief.employees.push(employee001, employee002, employee003);
+
+chief.employees.forEach((employee: Employee) => {
+    employee.greet();
+})
