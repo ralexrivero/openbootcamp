@@ -127,3 +127,20 @@ Enums
 ### Cookies
 
 - `npm i cookies-utils --save` install cookies-utils
+
+## Design patterns
+
+- creational patterns
+  - object creation
+  - code reuse
+  - code flexibility
+- structural patterns
+  - structure flexibility and efficiency
+- behavioral patterns
+  - solid principles
+  - asign responsibility between objects
+  - efficient communication between objects
+
+### recomended lectures
+
+- [Design Patterns](https://refactoring.guru/es/design-patterns)
