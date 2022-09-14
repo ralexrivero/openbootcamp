@@ -612,3 +612,8 @@ class TestDecoratorMethod {
 }
 
 let test004 = new TestDecoratorMethod().test('Hello!!', false);
+
+// creational patterns
+// singleton
+
+
