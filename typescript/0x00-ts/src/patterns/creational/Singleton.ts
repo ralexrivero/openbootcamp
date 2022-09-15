@@ -14,5 +14,4 @@ class Singleton {
         console.log("Singleton method");
     }
 
-    
 }
