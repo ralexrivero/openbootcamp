@@ -36,3 +36,4 @@ class Chief extends Person {
     }
 }
 exports.Chief = Chief;
+//# sourceMappingURL=Person.js.map

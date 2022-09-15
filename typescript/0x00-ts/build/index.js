@@ -530,3 +530,4 @@ let test004 = new TestDecoratorMethod().test('Hello!!', false);
 
 clientCode(); */
 // factory method
+//# sourceMappingURL=index.js.map

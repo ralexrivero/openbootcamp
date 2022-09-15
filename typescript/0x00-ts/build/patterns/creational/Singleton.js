@@ -11,3 +11,4 @@ class Singleton {
         console.log("Singleton method");
     }
 }
+//# sourceMappingURL=Singleton.js.map
