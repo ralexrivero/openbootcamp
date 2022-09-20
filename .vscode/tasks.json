@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "install",
+			"path": "typescript/0x00-ts",
+			"group": "clean",
+			"problemMatcher": [],
+			"label": "npm: install - typescript/0x00-ts",
+			"detail": "install dependencies from package"
+		}
+	]
+}

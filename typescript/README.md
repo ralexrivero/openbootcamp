@@ -10,9 +10,13 @@
 
 ## Environment
 
-- Docker
-- Node.js 16 LTS
-- TypeScript 4.4.4
+[![Ubuntu](https://img.shields.io/static/v1?label=&message=Ubuntu&color=E95420&logo=Ubuntu&logoColor=E95420&labelColor=2F333A)](https://ubuntu.com/)<!-- ubuntu -->
+[![Bash](https://img.shields.io/static/v1?label=&message=GNU%20Bash&color=4EAA25&logo=GNU%20Bash&logoColor=4EAA25&labelColor=2F333A)](https://www.gnu.org/software/bash/)<!-- bash -->
+[![VS Code](https://img.shields.io/static/v1?label=&message=Visual%20Studio%20Code&color=007ACC&logo=Visual%20Studio%20Code&logoColor=007ACC&labelColor=2F333A)](https://code.visualstudio.com/)<!-- vs code -->
+[![Docker](https://img.shields.io/static/v1?label=&message=Docker&color=2496ED&logo=Docker&labelColor=2F333A)](https://hub.docker.com)<!-- docker -->
+[![node.js](https://img.shields.io/static/v1?label=&message=Node.js&color=339933&logo=Node.js&logoColor=339933&labelColor=F5F5F5)](https://nodejs.org/en/)<!-- Node.js -->
+[![TypeScript](https://img.shields.io/static/v1?label=&message=TypeScript&color=3178C6&logo=TypeScript&logoColor=3178C6&labelColor=2F333A)](https://www.typescriptlang.org/)<!-- TS -->
+[![eslint](https://img.shields.io/static/v1?label=&message=ESLint&color=4B32C3&logo=ESLint&logoColor=4B32C3&labelColor=F5F5F5)](https://eslint.org/)<!-- eslint -->
 
 ## What is TypeScript?
 
@@ -144,3 +148,35 @@ Enums
 ### recomended lectures
 
 - [Design Patterns](https://refactoring.guru/es/design-patterns)
+
+## Documentation
+
+- `npm i --save-dev typedoc` install typedoc
+- add script to package.json
+
+```json
+  "scripts": {
+    "docs": "typedoc --out docs ./src"
+  },
+```
+
+- `npm run docs` generate documentation
+
+## linting
+
+- `npm init @eslint/config` install and configure eslint
+- `.eslintrc.json` eslint config file
+- add to package.json
+
+```json
+  "scripts": {
+    "lint": "eslint src --ext .ts"
+  },
+```
+
+- `npm run linting` run linting or
+- `npx eslint file.js` run linting for a file
+
+## Author
+<!-- twitter -->
+[![Twitter](https://img.shields.io/twitter/follow/ralex_uy?style=social)](https://twitter.com/ralex_uy) <!-- linkedin --> [![Linkedin](https://img.shields.io/badge/LinkedIn-+27K-blue?style=social&logo=linkedin)](https://www.linkedin.com/in/ronald-rivero/) <!-- github --> [![Github](https://img.shields.io/github/followers/ralexrivero?style=social)](https://github.com/ralexrivero/) <!-- vagrant --> [![Vagrant](https://img.shields.io/static/v1?label=&message=Vagrant%20Profile&color=1868F2&logo=vagrant&labelColor=2F333A)](https://app.vagrantup.com/ralexrivero) <!-- docker --> [![Docker](https://img.shields.io/static/v1?label=&message=Docker%20Profile&color=2496ED&logo=Docker&labelColor=2F333A)](https://hub.docker.com/u/ralexrivero)
