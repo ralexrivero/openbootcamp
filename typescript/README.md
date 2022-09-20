@@ -151,6 +151,8 @@ Enums
 
 ## Documentation
 
+- [TSDoc](https://tsdoc.org/)
+
 - `npm i --save-dev typedoc` install typedoc
 - add script to package.json
 
@@ -161,6 +163,8 @@ Enums
 ```
 
 - `npm run docs` generate documentation
+- `npm i -g serve` install serve (as sudo, or exec sh as --user root in docker container)
+- `serve -s docs` serve documentation
 
 ## linting
 
